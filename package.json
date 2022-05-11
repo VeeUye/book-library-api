@@ -1,0 +1,36 @@
+{
+  "name": "book-library-api",
+  "version": "1.0.0",
+  "description": "A simple book library API that will allow users to create accounts, list books to loan, and request to loan books from other users.",
+  "main": "index.js",
+  "scripts": {
+    "prestart": "node scripts/create-database.js",
+    "start": "nodemon -r dotenv/config index.js",
+    "pretest": "node scripts/create-database.js test",
+    "test": "mocha tests/**/*.test.js",
+    "posttest": "node scripts/drop-databse.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VeeUye/book-library-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VeeUye/book-library-api/issues"
+  },
+  "homepage": "https://github.com/VeeUye/book-library-api#readme",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "mysql2": "^2.3.3",
+    "nodemon": "^2.0.16",
+    "swagger-jsdoc": "^6.2.1",
+    "swagger-ui-express": "^4.3.0"
+  },
+  "devDependencies": {
+    "chai": "^4.3.6",
+    "mocha": "^10.0.0",
+    "supertest": "^6.2.3"
+  }
+}
