@@ -1,0 +1,68 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is a book library API created by Vee Uye as part of my learning on the [Manchester Codes Bootcamp](https://www.manchestercodes.com/). Find out more about this project by visiting the repo README at [github.com/VeeUye/book-library-api](https://github.com/VeeUye/book-library-api).",
+    "version": "1.0.0",
+    "title": "Book Library API",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "host": "petstore.swagger.io",
+  "basePath": "/v2",
+  "tags": [
+    {
+      "name": "readers",
+      "description": "reader related endpoints"
+    },
+    {
+      "name": "books",
+      "description": "book related endpoints"
+    }
+  ],
+  "schemes": ["https", "http"],
+  "paths": {
+    "/readers": {
+      "post": {
+        "summary": "creates a new reader in the database",
+        "tags": ["readers"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "newReader",
+            "required": true,
+            "description": "new reader object to be added to database",
+            "schema": {
+              "$ref": "#/definitions/Reader"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Successfully created a new reader"
+          },
+          "404": {
+            "description": "Specified resource not available"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Reader": {
+      "type": "object",
+      "required": ["name", "email"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "Kenny"
+        },
+        "email": {
+          "type": "string",
+          "example": "kenny@ken.com"
+        }
+      }
+    }
+  }
+}
